@@ -5,6 +5,6 @@ public interface Product {
     Double getPriceIncludingVAT();
     Double getVATAmount();
     String getName();
-    UUID getID();
+    UUID getId();
 
 }

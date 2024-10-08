@@ -4,16 +4,15 @@ import java.util.UUID;
 public class VolumeDeco extends ProductDecorator{
 
     protected Product decoratedProduct;
-    double Vol;
-
+    private final double volume;
 
     public VolumeDeco(Product decoratedProduct,Double Volume){
         super(decoratedProduct);
-        Vol = Volume;
+        this.volume = Volume;
     }
 
     @Override
-    public UUID getID() {
+    public UUID getId() {
         return super.getId();
     }
 
@@ -24,17 +23,17 @@ public class VolumeDeco extends ProductDecorator{
 
     @Override
     public Double getPriceExcludingVAT() {
-        return super.getPriceExcludingVAT()*Vol;
+        return super.getPriceExcludingVAT()*volume;
     }
 
     @Override
     public Double getPriceIncludingVAT() {
-        return super.getPriceIncludingVAT()*Vol;
+        return super.getPriceIncludingVAT()*volume;
     }
 
     @Override
     public Double getVATAmount() {
-        return super.getVATAmount()*Vol;
+        return super.getVATAmount();
     }
 
 

@@ -3,17 +3,17 @@ import java.util.UUID;
 public class PoidsDeco extends ProductDecorator {
 
     protected Product decoratedProduct;
-    double P;
+    private final double poids;
 
 
     public PoidsDeco(Product decoratedProduct,Double Poids){
         super(decoratedProduct);
-        P = Poids;
+        this.poids = Poids;
     }
 
     @Override
     public UUID getId() {
-        return super.getID();
+        return super.getId();
     }
 
     @Override
@@ -23,12 +23,12 @@ public class PoidsDeco extends ProductDecorator {
 
     @Override
     public Double getPriceExcludingVAT() {
-        return super.getPriceExcludingVAT()*P;
+        return super.getPriceExcludingVAT()*this.poids;
     }
 
     @Override
     public Double getPriceIncludingVAT() {
-        return super.getPriceIncludingVAT()*P;
+        return super.getPriceIncludingVAT()*this.poids;
     }
 
     @Override

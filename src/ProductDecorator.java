@@ -29,8 +29,8 @@ public abstract  class ProductDecorator implements Product{
         return decoratedProduct.getName();
     }
 
-    @override 
+    @Override 
     public UUID getId() {
-        return decoratedProduct.getID();
+        return decoratedProduct.getId();
     }
 }

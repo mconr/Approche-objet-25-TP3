@@ -33,7 +33,7 @@ public class PoidsDeco extends ProductDecorator {
 
     @Override
     public Double getVATAmount() {
-        return super.getVATAmount()*P;
+        return super.getVATAmount()*this.poids;
     }
 
 }

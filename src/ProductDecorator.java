@@ -1,36 +1,33 @@
-import java.util.UUID;
+public abstract class ProductDecorator implements Product {
+	protected Product decoratedProduct;
 
-public abstract  class ProductDecorator implements Product{
-    
-    protected Product decoratedProduct;
-
-    public ProductDecorator(Product decoratedProduct){
+    public ProductDecorator(Product decoratedProduct) {
         this.decoratedProduct = decoratedProduct;
     }
 
-
     @Override
-    public Double getPriceExcludingVAT() {
-        return decoratedProduct.getPriceExcludingVAT();
-    }
-
-    @Override
-    public Double getPriceIncludingVAT() {
-        return decoratedProduct.getPriceIncludingVAT();
+    public double getPriceExclVat() {
+        return decoratedProduct.getPriceExclVat();
     }
 
     @Override
-    public Double getVATAmount() {
-        return decoratedProduct.getVATAmount();
+    public double getPriceInclVat() {
+        return getPriceExclVat() * (1 + getVat());
     }
 
     @Override
-    public String getName() {
-        return decoratedProduct.getName();
+    public double getVatAmount() {
+        return  getPriceExclVat() * getVat();
     }
 
-    @Override 
-    public UUID getId() {
-        return decoratedProduct.getId();
+	@Override
+    public double getVat() {
+    	return decoratedProduct.getVat();
     }
+
+	@Override
+	public String toString() {
+		return "ProductDecorator [decoratedProduct=" + decoratedProduct + "]";
+	}
+
 }

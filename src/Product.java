@@ -1,10 +1,6 @@
-import java.util.UUID;
-
 public interface Product {
-    Double getPriceExcludingVAT();
-    Double getPriceIncludingVAT();
-    Double getVATAmount();
-    String getName();
-    UUID getId();
-
+    double getPriceExclVat(); // Prix HT sur le produit détaillé
+    double getPriceInclVat(); // Prix TTC sur le produit détaillé
+    double getVatAmount(); // Montant de la TVA sur le produit détaillé
+	double getVat(); // Montant de la TVA
 }
